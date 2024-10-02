@@ -1,0 +1,795 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: 'Arial', sans-serif;
+}
+
+/* Global styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.display-f {
+    display: flex;
+}
+
+/* Container for max-width and center alignment */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-container {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    width: 100%;
+    height: 70px;
+    overflow: visible;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    width: 150px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 25%;
+}
+
+/* Options navigation styles */
+.options ul {
+    list-style: none;
+    display: flex;
+}
+
+.option {
+    gap: 45px;
+}
+
+.option li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.option li a:hover {
+    color: #e63946;
+}
+
+/* Social media styles */
+.social-medias {
+    display: flex;
+    gap: 20px;
+}
+
+.social-medias a {
+    color: #333;
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.social-medias a:hover {
+    color: #e63946;
+}
+
+/* Ajout d'une animation pour l'ouverture et la fermeture du menu mobile */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: all 0.5s ease;
+}
+
+/* Lorsque le menu mobile est actif (ouvert) */
+.mobile-menu.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ajout de l'animation de fermeture */
+.mobile-menu.hidden {
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: all 0.5s ease;
+}
+
+/* Styles des éléments du menu mobile */
+.mobile-menu ul {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.mobile-menu ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+.mobile-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.mobile-menu ul li a:hover {
+    color: #e63946;
+}
+
+/* Menu hamburger visible sur mobile */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media (max-width: 1144px) {
+    .header-container {
+        padding: 0 10px;
+    }
+
+    .logo img {
+        width: 120px;
+    }
+
+    nav {
+        width: auto;
+    }
+
+    .options, .social-medias {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+
+@keyframes hamb {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hambin {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+/* Section présentation image */
+.img-presentation {
+    position: relative;
+    margin-top: 70px; /* To avoid overlap with the fixed header */
+}
+
+.img-presentation h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 48px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+
+    animation: fadeInDown 1s ease-in-out;
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Style de la superposition */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Noir transparent */
+    z-index: 1; /* S'assure que l'overlay est au-dessus de l'image */
+    height: 98.8%;
+}
+
+.img-presentation img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+/* Section About */
+.about {
+    /*padding: 50px 0;*/
+    background-color: #f9f9f9;
+
+    padding: 50px 20px;
+    text-align: center;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.feature {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+}
+
+.feature i {
+    font-size: 40px;
+    color: #e63946;
+    margin-bottom: 15px;
+}
+
+.feature h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.feature p {
+    font-size: 16px;
+    color: #777;
+}
+
+/* Footer */
+footer {
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+
+
+/*galery*/
+.gallery_spe {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.gallery_spe h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Grille de galerie */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centre la grille */
+}
+
+/* Élément de la galerie */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px; /* Coins arrondis */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s; /* Effet d'agrandissement */
+}
+
+/* Effet d'agrandissement à l'hover */
+.gallery-item:hover img {
+    transform: scale(1.1); /* Zoom légèrement sur l'image */
+}
+
+
+
+
+/* Style du bouton Voir le Menu */
+.menu-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-menu {
+    background-color: #264653;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-menu:hover {
+    background-color: #2a9d8f;
+}
+
+/* Modale pour le menu */
+#menuModal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.close-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Liste du menu */
+.menu-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+.menu-list li {
+    margin-bottom: 10px;
+}
+
+
+
+
+/* Section service */
+.service {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.service h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Grille des services */
+.service-grid {
+    display: flex; /* Utilise flexbox pour un alignement horizontal */
+    gap: 20px;
+    overflow-x: auto; /* Ajoute un défilement horizontal */
+    scroll-snap-type: x mandatory; /* Ajoute un effet de snap lors du scroll */
+    padding-bottom: 20px; /* Espace en bas pour éviter que l'élément touche le bas du conteneur */
+    -webkit-overflow-scrolling: touch; /* Améliore le scroll sur mobile */
+}
+
+.service-grid::-webkit-scrollbar {
+    display: none; /* Cache la scrollbar */
+}
+
+/* Élément de service */
+.service-item {
+    background-color: white;
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre */
+    padding: 20px;
+    text-align: center;
+    flex: 0 0 250px; /* Largeur fixe pour chaque item */
+    scroll-snap-align: start; /* Aligne les éléments sur le début lors du scroll */
+    transition: transform 0.3s; /* Effet d'élévation */
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+}
+
+.service-item i {
+    font-size: 40px;
+    color: #e63946; /* Couleur de l'icône */
+    margin-bottom: 10px;
+}
+
+.service-item h3 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.service-item p {
+    color: #666;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    line-height: 1.6; /* Améliore la lisibilité */
+}
+
+/* Effet d'élévation à l'hover */
+.service-item:hover {
+    transform: translateY(-5px); /* Légère élévation au survol */
+}
+
+
+/* Style général des icônes dans les services */
+.service-item i {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* Couleurs spécifiques pour chaque icône */
+.service-item i.fa-utensils {
+    color: #FF6347; /* Rouge tomate pour les repas à emporter */
+}
+
+.service-item i.fa-bell {
+    color: #FFD700; /* Doré pour le service de livraison */
+}
+
+.service-item i.fa-calendar-alt {
+    color: #32CD32; /* Vert lime pour les réservations */
+}
+
+.service-item i.fa-wheelchair {
+    color: #4CAF50; /* Vert pour accessibilité */
+}
+
+.service-item i.fa-sun {
+    color: #FFA500; /* Orange pour la terrasse */
+}
+
+.service-item i.fa-parking {
+    color: #1E90FF; /* Bleu pour le parking */
+}
+
+.service-item i.fa-glass-cheers {
+    color: #FF4500; /* Orange pour événements privés */
+}
+
+.service-item i.fa-ring {
+    color: #800080; /* Violet pour les réceptions de mariage */
+}
+
+.service-item i.fa-wifi {
+    color: #00BFFF; /* Bleu ciel pour le Wi-Fi gratuit */
+}
+
+
+
+/* Section de disponibilité */
+/*.dispo {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.dispo h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.dispo p {
+    font-size: 18px;
+    color: #666;
+}*/
+/* Section Disponibilité */
+.surname{
+    margin-right: 15px;
+}
+.dispo {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.dispo h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.dispo p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Style du bouton "Réserver" */
+.btn-reserver {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #e63946;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reserver:hover {
+    background-color: #d62839;
+}
+
+/* Fenêtre modale */
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond transparent noir */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content1{width: 400px;}
+/*.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+
+    animation: fadeIn 0.5s ease-in-out;
+}*/
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Style du formulaire */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="tel"],
+.modal-content input[type="email"],
+.modal-content input[type="number"],
+.modal-content input[type="datetime-local"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.modal-content button[type="submit"] {
+    padding: 10px;
+    background-color: #e63946;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #d62839;
+}
+
+/* Bouton pour fermer la fenêtre */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+
+
+/* Style des boutons de catégorie avec icônes */
+.menu-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn-category {
+    background-color: transparent; /* Pas d'arrière-plan */
+    border: none; /* Pas de bordure */
+    margin: 5px;
+    font-size: 40px; /* Taille des icônes */
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Animation de survol */
+    color: #e76f51; /* Couleur des icônes */
+}
+
+.btn-category:hover {
+    transform: scale(1.2); /* Agrandir légèrement les icônes au survol */
+}
+
+/* Style des sections de menu */
+.menu-section {
+    display: none;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.menu-list li {
+    margin-bottom: 10px;
+}
+
+
+
+
+/* Section remerciement */
+.thanks-section {
+    text-align: center;
+    margin-top: 70px;
+    padding: 118px 20px;
+}
+
+.thanks-section h1 {
+    font-size: 2.5rem;
+    /*color: #e76f51;*/
+    color: #e63946;
+    margin-bottom: 20px;
+}
+
+.thanks-section p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #2a9d8f;
+}
+
+.thank-you-icon {
+    font-size: 60px;
+    color: #2a9d8f;
+    margin-bottom: 20px;
+}
+
+/* Bouton pour retourner à l'accueil */
+.btn-home {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #e63946/*#e76f51*/;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-home:hover {
+    background-color: #f4a261;
+}
+
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+    }
+
+    .feature {
+        margin-bottom: 20px;
+    }
+
+    .img-presentation h1 {
+        font-size: 32px;
+    }
+}
